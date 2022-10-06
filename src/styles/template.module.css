@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+}
+
+.page {
+	display: flex;
+}
+
+.sidebar {
+	width: 250px;
+	background: hsl(121, 100%, 90%);
+}
+
+.content {
+	flex-grow: 1;
+	background: hsl(208, 100%, 90%);
+}
+
+.sidebar, .content {
+	height: 100vh;
+	padding: 15px;
+	box-sizing: border-box;
+}
