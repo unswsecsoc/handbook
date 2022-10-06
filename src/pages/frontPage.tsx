@@ -1,6 +1,7 @@
 import * as React from 'react';
 // import Button from '@material-iu/core/Button';
 import Button from '@material-ui/core/Button';
+import background from '../images/hash-bg-3545f99ef26109fa74dda4a1f5f96cdc.svg';
 // styles
 const pageStyles = {
     color: '#232129',
@@ -63,28 +64,46 @@ const descriptionStyle = {
     lineHeight: 1.25,
 };
 
+const center = {
+    // paddingTop: '100px',
+    margin: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '70%',
+    height: '80vh',
+    backgroundImage: `url(${background})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    // backgroundImage: `url()../images/hash-bg-3545f99ef26109fa74dda4a1f5f96cdc.svg`,
+};
+
 // markup
 const frontPage = () => {
     return (
-        <main style={pageStyles}>
-            <title>Introductory Page</title>
-            <h1 style={headingStyles}>
-                Welcome to the <br></br>
-                <span style={headingAccentStyles}>UNSW Security Society </span>
-                Cybersecurity Handbook🎉🎉🎉
-            </h1>
-            <h2 style={linkStyle}>Introduction</h2>
-            <p style={paragraphStyles}>
-                Our goal with this handbook is to provide an introductory
-                outlook on cybersecurity. To cultivate an enhanced enthusiasm
-                around cybersecurity and reduce the stigma that cybersecurity is
-                <span style={headingAccentStyles}> hard </span>
-                Here we'll provide introductions to cyber security related
-                concepts coupled with interactive activities to facilitate a
-                deeper understanding of the subject matter.
-            </p>
-            <Button variant="outlined">Outlined</Button>
-            {/* <h2 style={linkStyle}>Who are we?</h2>
+        <div style={center}>
+            <main style={pageStyles}>
+                <title>Introductory Page</title>
+                <h1 style={headingStyles}>
+                    Welcome to the <br></br>
+                    <span style={headingAccentStyles}>
+                        UNSW Security Society{' '}
+                    </span>
+                    Cybersecurity Handbook🎉🎉🎉
+                </h1>
+                <h2 style={linkStyle}>Introduction</h2>
+                <p style={paragraphStyles}>
+                    Our goal with this handbook is to provide an introductory
+                    outlook on cybersecurity. To cultivate an enhanced
+                    enthusiasm around cybersecurity and reduce the stigma that
+                    cybersecurity is
+                    <span style={headingAccentStyles}> hard </span>
+                    Here we'll provide introductions to cyber security related
+                    concepts coupled with interactive activities to facilitate a
+                    deeper understanding of the subject matter.
+                </p>
+                <Button variant="outlined">Go to handbook</Button>
+                {/* <h2 style={linkStyle}>Who are we?</h2>
             <p style={paragraphStyles}>
                 Security Society at UNSW is a society that facilitates the
                 learning of cyber security. The ultimate goal of our society is
@@ -94,7 +113,8 @@ const frontPage = () => {
                 and test skills in hacking, cryptography, and general cyber
                 security
             </p> */}
-        </main>
+            </main>
+        </div>
     );
 };
 
