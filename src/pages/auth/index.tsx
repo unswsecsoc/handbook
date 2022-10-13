@@ -2,6 +2,7 @@ import * as React from "react";
 import PageTemplate from "../../templates/PageTemplate.tsx";
 import * as style from "./auth.module.css"
 
+
 type User = { authToken: string, accessLevel: string, name: string };
 const users: User[] = [
   { authToken: '1234a', accessLevel: '1', name: 'Joe' },
@@ -15,6 +16,7 @@ type UserProps = { user: User }
 const Users = ({ user }: UserProps) => {
   return (
     <div className={style.User} id={style[`User${user.name}`]}>
+      <img src={require(`./images/${user.name}.png`).default} className={style.userImages} alt={`${user.name}`}></img>
       <div className={style.UserInfo}>
         <b>{user.name}</b>
         <p>
