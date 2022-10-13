@@ -1,7 +1,8 @@
 import * as React from 'react';
-// import Button from '@material-iu/core/Button';
 import Button from '@material-ui/core/Button';
-import background from '../images/hash-bg-3545f99ef26109fa74dda4a1f5f96cdc.svg';
+import background from '../images/hash-background.svg';
+import logo from '../images/secsoc-logo.png';
+import SimpleBottomNavigation from '../components/Footer';
 // styles
 const pageStyles = {
     color: '#232129',
@@ -67,6 +68,7 @@ const descriptionStyle = {
 const center = {
     // paddingTop: '100px',
     margin: 'auto',
+    flexDirection: 'column',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -75,22 +77,36 @@ const center = {
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    // backgroundImage: `url()../images/hash-bg-3545f99ef26109fa74dda4a1f5f96cdc.svg`,
 };
-
 // markup
 const frontPage = () => {
+    // const [value, setValue] = React.useState(0);
+
     return (
+        // <div style={center1}>
         <div style={center}>
             <main style={pageStyles}>
-                <title>Introductory Page</title>
-                <h1 style={headingStyles}>
-                    Welcome to the <br></br>
-                    <span style={headingAccentStyles}>
-                        UNSW Security Society{' '}
-                    </span>
-                    Cybersecurity Handbook🎉🎉🎉
-                </h1>
+                <div style={{ display: 'flex' }}>
+                    <div id="left box">
+                        <title>Introductory Page</title>
+                        <h1 style={headingStyles}>
+                            Welcome to the <br></br>
+                            <span style={headingAccentStyles}>
+                                UNSW Security Society{' '}
+                            </span>
+                            Cybersecurity Handbook🎉🎉🎉
+                        </h1>
+                    </div>
+                    <div
+                        id="right box"
+                        style={{
+                            marginLeft: 'auto',
+                            marginRight: 0,
+                        }}
+                    >
+                        <img src={logo} width="200" height="200"></img>
+                    </div>
+                </div>
                 <h2 style={linkStyle}>Introduction</h2>
                 <p style={paragraphStyles}>
                     Our goal with this handbook is to provide an introductory
@@ -114,7 +130,10 @@ const frontPage = () => {
                 security
             </p> */}
             </main>
+            {/* <BottomNavigation showLabels></BottomNavigation> */}
+            <SimpleBottomNavigation />
         </div>
+        // </div>
     );
 };
 
