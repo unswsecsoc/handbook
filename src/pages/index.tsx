@@ -5,7 +5,7 @@ import PageTemplate from "../templates/PageTemplate.tsx";
 const IndexPage = () => {
   return (
     <PageTemplate>
-      <div>Page content!</div>
+      <div>Page content! UNSW Security Society!</div>
     </PageTemplate>
   )
 }
