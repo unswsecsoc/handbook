@@ -1,7 +1,12 @@
 .sidebar {
-	width: 250px;
-	background: hsl(121, 100%, 90%);
-    height: 100vh;
+	min-width: 200px;
+	background: #AAFFFF;
+    top: 20px;
+}
+
+.sidebarContent {
+    width: 200px;
+    position: fixed;
 }
 
 .sidebar ul {
@@ -20,3 +25,6 @@
     font-weight: bold;
 }
 
+.active {
+    background-color: #aaffaa;
+}
