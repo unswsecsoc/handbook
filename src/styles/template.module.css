@@ -1,5 +1,5 @@
 body {
-	margin: 0;
+    margin: 0;
 }
 
 .page {
@@ -8,11 +8,11 @@ body {
 
 .content {
 	flex-grow: 1;
-	background: hsl(208, 100%, 90%);
+	background: hsl(100, 100%, 90%);
 }
 
 .page > * {
-	height: 100vh;
+	/*height: 100vh;*/
 	padding: 15px;
 	box-sizing: border-box;
 }
