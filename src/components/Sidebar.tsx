@@ -41,18 +41,15 @@ const useIntersectionObserver = (setActiveId) => {
   useEffect(() => {
     const callback = (entries, observer) => {
       // find the first header element preceding the intersection
-        console.log("callback called!");
-        let currentElement = entries[0].target;
-        console.log(currentElement);
-        while (currentElement.nodeName !== 'H2' && currentElement.nodeName !== 'H1') {
-          currentElement = currentElement.previousSibling;
-        }
-        setActiveId(currentElement.id);
+      let currentElement = entries[0].target;
+      while (currentElement.nodeName !== 'H2' && currentElement.nodeName !== 'H1') {
+        currentElement = currentElement.previousSibling;
+      }
+      setActiveId(currentElement.id);
     };
 
     const observer = new IntersectionObserver(callback, {
       rootMargin: '-49% 0px -49% 0px',
-      //threshold: 0.5
     });
 
     // select all header elements and their siblings
@@ -68,6 +65,5 @@ const useIntersectionObserver = (setActiveId) => {
     targets.forEach((element) => observer.observe(element));
   }, []);
 };
-
 
 export default Sidebar;
