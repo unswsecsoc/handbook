@@ -15,14 +15,14 @@ const SecurityMindsetPage = () => {
         <h2 id="complaining">But First: Complaining</h2>
         <p>Getting security right is hard -- it's a balance -- some things are more important than others</p>
         <h2 id="standard-vs-security">Standard Mindset vs Security Mindset</h2>
-        <p>What is the security mindset about?
+        <p>What is the security mindset about?</p>
         <ul>
           <li><strong>Challenging assumptions</strong>: What assumptions did designers make when building their system? And can you exploit any of them? Did they assume that the user data wouldn't contain any special characters, or did they actually check?</li>
           <li><strong>Seeing the system as an organism</strong></li>
           <li><strong>Understanding the details</strong>: So the safe is locked -- what kind of lock is it? You're keeping access logs -- how often are they checked? Which version of SQL is that server running? The details matter in security.</li>
         </ul>
-        </p>
         <h2 id="interactive">Now You Try!</h2>
+        <p><strong>NOTE: THE SECURITY SOCIETY OF UNSW DOES NOT CONDONE STEALING, LYING, CHEATING, ETC. THE FOLLOWING SCENARIOS ARE THOUGHT EXPERIMENTS ONLY. (INSERT SOMETHING ABOUT RICHARD BUCKLAND'S GOOD FAITH POLICY HERE)</strong></p>
         <FreeTextScenario />
       </div>
     </PageTemplate>
