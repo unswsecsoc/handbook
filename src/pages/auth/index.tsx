@@ -90,7 +90,7 @@ const Cards = () => {
           }
         </div>
         {arrows.map(ar => (
-          <Xarrow start={ar.start} end={ar.end} />
+          <Xarrow start={ar.start} end={ar.end} path="straight" />
         ))}
 
       </Xwrapper >
