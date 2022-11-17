@@ -25,9 +25,9 @@ const FreeTextScenario = () => {
 
   return (
     <div className={style.scenario}>
-      <p>Scenario {scenarioNumber + 1}/{scenarioData.length} 
-        <input type="button" value="Skip" onClick={() => skipScenario(scenarioNumber, setScenarioNumber, setSubmitted)}/> 
-        <input type ="button" value="Back" onClick={() => backScenario(scenarioNumber, setScenarioNumber, setSubmitted)}/>
+      <p><span className={style.navigator}>Scenario {scenarioNumber + 1}/{scenarioData.length}</span>
+        <button onClick={() => skipScenario(scenarioNumber, setScenarioNumber, setSubmitted)}>Skip</button>
+        <button onClick={() => backScenario(scenarioNumber, setScenarioNumber, setSubmitted)}>Back</button>
       </p>
 
       <h3>{scenario.title}</h3>
@@ -41,7 +41,8 @@ const FreeTextScenario = () => {
         <p><strong>You said:</strong></p>
       }
       <textarea disabled={submitted} placeholder="Type your thoughts here..." onChange={updateTextField} value={inputs[scenarioNumber]}></textarea>
-      <p><input type="button" title="Write a thoughtful (more than 20 character) response before submitting!" disabled={inputs[scenarioNumber].length < MIN_CHARACTERS} value="Compare answers" onClick={() => setSubmitted(true)}/></p>
+      <p><button title="Write a thoughtful (more than 20 character) response before submitting!" disabled={inputs[scenarioNumber].length < MIN_CHARACTERS} onClick={() => setSubmitted(true)}>Compare answers</button></p>
+
 
       {submitted &&
         <>

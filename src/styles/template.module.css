@@ -1,26 +1,76 @@
+:root {
+    --sepia: hsl(30,70%,26%);
+    --beige: #f5f5dc;
+    --greyed-sepia: hsl(30,30%,50%);
+    --wheat: #f5deb3;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,700;1,700&family=Inter&display=swap');
+
 html {
     background-color: #F5F5DC;
     color: #000000;
 }
 
 body {
+
     margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+p {
+    line-height: 1.4;
+    font-size: 1em;
+}
+
+h1, h2, h3 {
+    font-family: monospace;
 }
 
 h1 {
-    font-family: "Courier New", monospace;
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
 }
 
 .page {
 	display: flex;
 }
 
-.content {
-	flex-grow: 1;
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    flex-grow: 1;
 }
 
 .page > * {
 	/*height: 100vh;*/
 	padding: 15px;
 	box-sizing: border-box;
+}
+
+button {
+    color: var(--sepia);
+    position: relative;
+    border: 2px solid;
+    background-color: var(--beige);
+    font-family: monospace;
+    font-weight: bold;
+    box-shadow: 5px 5px 0px 0px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:active:not(:disabled) {
+    box-shadow: none;
+    left: 5px;
+    top: 5px;
+}
+
+button:disabled {
+    color: var(--greyed-sepia);
+    cursor: not-allowed;
 }

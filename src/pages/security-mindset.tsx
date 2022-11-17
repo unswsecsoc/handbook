@@ -8,7 +8,7 @@ const SecurityMindsetPage = () => {
     <PageTemplate>
       <div>
         <h1>Topic 1: The Security Mindset</h1>
-        <p><em>What's the point of a state-of-the-art surveillance system when the person who's supposed to monitor it is asleep? What's the point of encrypting data securely if you make the keys publically available? And why people are getting so upset at us for leaking their driver's licences?</em></p>
+        <p><em>What's the point of a state-of-the-art surveillance system when the person who's supposed to monitor it is asleep? What's the point of encrypting data securely if you make the keys publically available? And why people are getting so mad at us for leaking their driver's licences?</em></p>
         <h2 id="introduction">Introduction to Security</h2>
         <p>We need security. We need to make sure our stuff doesn't get tampered with, that our private documents don't get looked at, that our identities don't get stolen, that we get what we pay for, and so on. And since so much of our lives are online now, that security needs to extend to the digital world too. So, what do we have so far?</p>
         <p>Well, that's what COMP6441/COMP6841 covers. And one of the most foundational ideas is that of the <strong>security mindset</strong> -- because if you want to stop attackers, you have to <em>know what they want</em>, and you have to <em>know how they think.</em></p>
@@ -21,7 +21,7 @@ const SecurityMindsetPage = () => {
           <li><strong>Seeing the system as an organism</strong></li>
           <li><strong>Understanding the details</strong>: So the safe is locked -- what kind of lock is it? You're keeping access logs -- how often are they checked? Which version of SQL is that server running? The details matter in security.</li>
         </ul>
-        <h2 id="interactive">Now You Try!</h2>
+        <h2 id="interactive">Now You Try</h2>
         <p><strong>NOTE: THE SECURITY SOCIETY OF UNSW DOES NOT CONDONE STEALING, LYING, CHEATING, ETC. THE FOLLOWING SCENARIOS ARE THOUGHT EXPERIMENTS ONLY. (INSERT SOMETHING ABOUT RICHARD BUCKLAND'S GOOD FAITH POLICY HERE)</strong></p>
         <FreeTextScenario />
       </div>

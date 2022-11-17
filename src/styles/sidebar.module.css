@@ -1,9 +1,8 @@
 .sidebar {
     flex: none;
-    width: 200px;
+    width: 270px;
     background-color: #F5DEB3;
     position: sticky;
-    border: 2px dotted;
     top: 0px;
     height: 100vh;
 }
@@ -15,21 +14,42 @@
 }
 */
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .sidebar ul {
     list-style-type: none;
     font-weight: normal;
     font-family: "Courier New", monospace;
     color: #704214;
+    line-height: 1.5;
 }
 
 .sidebar > ul {
-    padding: 0;
+    padding: 0 10px;
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    border-color: #704214;
 }
 
 .sidebar > ul > li {
     font-weight: bold;
+    margin: 10px 0;
 }
 
-.active {
-    background-color: #aaffaa;
+li.active > a {
+    /* text-decoration: underline;*/
+    color: var(--wheat);
+    background-color: var(--sepia);
+}
+
+.navigator {
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--sepia);
+    font-size: 1rem;
+    text-decoration: underline;
+    margin: 5px;
 }
