@@ -1,5 +1,14 @@
+html {
+    background-color: #F5F5DC;
+    color: #000000;
+}
+
 body {
     margin: 0;
+}
+
+h1 {
+    font-family: "Courier New", monospace;
 }
 
 .page {
@@ -8,7 +17,6 @@ body {
 
 .content {
 	flex-grow: 1;
-	background: hsl(100, 100%, 90%);
 }
 
 .page > * {

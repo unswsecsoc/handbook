@@ -1,24 +1,29 @@
 .sidebar {
-	min-width: 200px;
-	background: #AAFFFF;
-    top: 20px;
+    flex: none;
+    width: 200px;
+    background-color: #F5DEB3;
+    position: sticky;
+    border: 2px dotted;
+    top: 0px;
+    height: 100vh;
 }
 
+/*
 .sidebarContent {
     width: 200px;
     position: fixed;
 }
+*/
 
 .sidebar ul {
     list-style-type: none;
+    font-weight: normal;
+    font-family: "Courier New", monospace;
+    color: #704214;
 }
 
 .sidebar > ul {
     padding: 0;
-}
-
-.sidebar ul {
-    font-weight: normal;
 }
 
 .sidebar > ul > li {
