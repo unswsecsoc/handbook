@@ -9,7 +9,7 @@ Eddy Wong
 Installing:
 
 ```
-sudo npm install gatsby-cli
+sudo npm install -g gatsby-cli
 npm install
 ```
 
