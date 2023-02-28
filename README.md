@@ -8,8 +8,13 @@ Eddy Wong
 
 Installing:
 
-```npm install```
+```
+sudo npm install gatsby-cli
+npm install
+```
 
 Start:
 
-```npm start```
+```
+npm start
+```
