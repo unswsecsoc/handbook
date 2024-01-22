@@ -1,4 +1,7 @@
 ---
+import Header from '@components/Header.astro'
+import { ViewTransitions } from 'astro:transitions';
+import "../styles/global.css";
 interface Props {
 	title: string;
 }
@@ -15,21 +18,12 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
-	<body class=" min-h-screen font-mono dark:bg-slate-900 bg-white overflow-x-hidden">
-        <header class=" h-[70px] w-full fixed bg-slate-700 z-50 shadow-lg">
-            <nav class=" h-[70px] flex justify-between items-center w-full px-5">
-                <h1 class=" text-4xl"> SECSoc's Security handbook</h1>
-                <div class="hidden [&>*]:list-none gap-3 whitespace-nowrap min-[950px]:flex items-center h-[--navbar-height] justify-end w-full">
-                    <div class="hover:scale-110">
-                        github link
-                    </div>
-                    <div class="hover:scale-110">
-                        socials
-                    </div>
-                </div>
-            </nav>
-        </header>
-		<slot />
+	<body transition:animate="slide" class=" min-h-screen font-mono overflow-x-hidden">
+        <Header />
+		<div class=" pt-[70px]">
+			<slot />
+		</div>
 	</body>
 </html>

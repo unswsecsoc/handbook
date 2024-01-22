@@ -1,0 +1,16 @@
+---
+import ThemeIcon from './ThemeIcon.astro';
+---
+
+<header class="h-[70px] w-full fixed bg-slate-700 z-50 shadow-lg">
+  <nav class="h-[70px] flex justify-between items-center w-full px-5">
+    <h1 class="text-4xl">SECSoc's Security handbook</h1>
+    <div
+      class="hidden [&>*]:list-none gap-3 whitespace-nowrap min-[950px]:flex items-center h-[--navbar-height] justify-end w-full"
+    >
+      <div class="hover:scale-110">github link</div>
+      <div class="hover:scale-110">socials</div>
+    </div>
+    <ThemeIcon />
+  </nav>
+</header>
