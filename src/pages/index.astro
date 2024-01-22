@@ -1,84 +1,25 @@
 ---
+import Carousel from "@/components/Carousel.tsx";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-
-const allPosts = await getCollection("posts");
 ---
 
-<script>
-  import EmblaCarousel, {
-    type EmblaCarouselType,
-    type EmblaOptionsType,
-  } from "embla-carousel";
-
-  const addTogglePrevNextBtnsActive = (
-    emblaApi: EmblaCarouselType,
-    prevBtn: HTMLElement,
-    nextBtn: HTMLElement
-  ): (() => void) => {
-    const togglePrevNextBtnsState = (): void => {
-      if (emblaApi.canScrollPrev()) prevBtn.removeAttribute("disabled");
-      else prevBtn.setAttribute("disabled", "disabled");
-
-      if (emblaApi.canScrollNext()) nextBtn.removeAttribute("disabled");
-      else nextBtn.setAttribute("disabled", "disabled");
-    };
-
-    emblaApi
-      .on("select", togglePrevNextBtnsState)
-      .on("init", togglePrevNextBtnsState)
-      .on("reInit", togglePrevNextBtnsState);
-
-    return (): void => {
-      prevBtn.removeAttribute("disabled");
-      nextBtn.removeAttribute("disabled");
-    };
-  };
-
-  const addPrevNextBtnsClickHandlers = (
-    emblaApi: EmblaCarouselType,
-    prevBtn: HTMLElement,
-    nextBtn: HTMLElement
-  ): (() => void) => {
-    const scrollPrev = () => emblaApi.scrollPrev();
-    const scrollNext = () => emblaApi.scrollNext();
-    prevBtn.addEventListener("click", scrollPrev, false);
-    nextBtn.addEventListener("click", scrollNext, false);
-
-    const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActive(
-      emblaApi,
-      prevBtn,
-      nextBtn
-    );
-
-    return (): void => {
-      removeTogglePrevNextBtnsActive();
-      prevBtn.removeEventListener("click", scrollPrev, false);
-      nextBtn.removeEventListener("click", scrollNext, false);
-    };
-  };
-
-  const OPTIONS: EmblaOptionsType = {};
-
-  const emblaNode = document.querySelector(".embla") as HTMLElement;
-  const viewportNode = emblaNode.querySelector(
-    ".embla__viewport"
-  ) as HTMLElement;
-  const prevBtn = emblaNode.querySelector(
-    ".embla__button--prev"
-  ) as HTMLElement;
-  const nextBtn = emblaNode.querySelector(
-    ".embla__button--next"
-  ) as HTMLElement;
-  const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-
-  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
-    emblaApi,
-    prevBtn,
-    nextBtn
-  );
-
-  emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+ 
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
 </script>
 
 <BaseLayout title="Main Page">
@@ -106,53 +47,6 @@ const allPosts = await getCollection("posts");
       Carousel thingy that displays the most recent posts
     </h1>
 
-    <div class="embla p-6 mx-auto w-full lg:w-3/5">
-      <div class="embla__viewport overflow-hidden">
-        <div class="embla__container flex touch-pan-y ">
-          {
-            allPosts.map((post) => (
-              <a
-                href={`/posts/${post.slug}`}
-                class=" flex flex-grow-0 flex-shrink-0 basis-1/3
-                 min-w-0
-                 relative
-                 hover:scale-105 transition-all box-content rounded-lg from-amber-400 to-sky-700 bg-gradient-to-l"
-              >
-                <div class=" w-full m-2 bg-black p-2">
-                  <h2 class=" text-3xl font-bold">{post.data.title}</h2>
-                  <p class=" py-2">{post.data.description}</p>
-                </div>
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class=" flex items-center justify-center top-1/2 -translate-y-1/2 left-6">
-        <button
-          class=" text-amber-500 flex items-center justify-center cursor-pointer w-16 h-16 embla__button--prev"
-          type="button"
-          disabled=""
-        >
-          <svg class=" w-3/5 h-3/5" viewBox="0 0 532 532">
-            <path
-              fill="currentColor"
-              d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
-            ></path>
-          </svg></button
-        ><button
-          class=" text-amber-500 flex items-center justify-center cursor-pointer w-16 h-16 embla__button--next"
-          type="button"
-          disabled=""
-        >
-          <svg class=" w-3/5 h-3/5" viewBox="0 0 532 532">
-            <path
-              fill="currentColor"
-              d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+    <Carousel client:load/>
   </div>
 </BaseLayout>

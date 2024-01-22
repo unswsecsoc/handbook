@@ -66,7 +66,7 @@ function Search({ tag }: SearchInit) {
         tabIndex={0}
       >
         <span className=" flex-grow flex gap-2 flex-wrap">
-          {selectedTags.map((tag) => (
+          {selectedTags.length > 0 ? selectedTags.map((tag) => (
             <button
               key={tag}
               onClick={(e) => {
@@ -78,19 +78,19 @@ function Search({ tag }: SearchInit) {
               {tag}
               <span className=" text-yellow-900 text-sm">&times;</span>
             </button>
-          ))}
+          )) : "Click here to select tags"}
         </span>
         <button
           onClick={(e) => {
             e.stopPropagation();
             clearOptions();
           }}
-          className=" bg-none text-[#777] border-none outline-none cursor-pointer p-0 text-lg hover:text-[#333] transition-all"
+          className=" bg-none text-[#a03232] border-none outline-none cursor-pointer p-0 text-lg hover:text-[#333] transition-all"
         >
           &times;
         </button>
-        <div className=" bg-[#777] self-stretch w-[.05rem]"></div>
-        <div className=" translate-x-0 translate-y-1/4 border-[.25em] border-solid border-transparent border-t-[#777]"></div>
+        <div className=" bg-[#a03232] self-stretch w-[.05rem]"></div>
+        <div className=" translate-x-0 translate-y-1/4 border-[.25em] border-solid border-transparent border-t-[#ca4747]"></div>
       </div>
 
       <ul
