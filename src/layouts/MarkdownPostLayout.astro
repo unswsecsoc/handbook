@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { fade } from "astro:transitions";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -9,7 +8,7 @@ const { frontmatter } = Astro.props;
     <p class="text-4xl font-extrabold">{frontmatter.title}</p>
     <p class="text-lg opacity-60"><em>{frontmatter.description}</em></p>
     <div class="flex flex-row justify-around w-1/2">
-      <p transition:animate={fade({ duration: "2s" })}>
+      <p>
         Published on: {frontmatter.pubDate.toString().slice(0, 10)}
       </p>
 

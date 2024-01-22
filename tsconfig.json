@@ -3,11 +3,8 @@
   "compilerOptions": {
     "baseUrl": "C:/Users/skipp/secsoc/handbook",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
+      "@/*": [
+        "./src/*"
       ]
     },
     "jsx": "react-jsx",
