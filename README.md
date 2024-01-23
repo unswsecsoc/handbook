@@ -1,15 +1,16 @@
 # Handbook
 
-An interactive security handbook presented by the Security Society of UNSW. Hosted on Cloudflare Pages using Gatsby.
-Contributors
-Eddy Wong
+A security handbook presented by the Security Society of UNSW. Made using Astro.
 
-## Setup
+## Commands
 
-Installing:
+All commands are run from the root of the project, from a terminal:
 
-```npm install```
-
-Start:
-
-```npm start```
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |

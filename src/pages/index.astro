@@ -1,0 +1,52 @@
+---
+import Carousel from "@/components/Carousel.tsx";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+ 
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
+</script>
+
+<BaseLayout title="Main Page">
+  <div class="min-h-screen w-full flex items-center flex-col">
+    <div class="flex items-center justify-center h-full flex-col min-h-screen">
+      <div class="dark:text-white text-black font-extrabold text-5xl">
+        (Insert big eye catchy slogan here)
+      </div>
+      <div class="dark:text-white text-black">
+        (Shorter sentence that kinda explains what this handbook thing is about)
+      </div>
+      <div class="py-6 h-full">
+        <a href="/search/">
+          <button
+            class="rounded-3xl bg-blue-700 p-4 shadow-lg hover:opacity-60 transition-all"
+          >
+            (Click here to go to the search page)
+          </button>
+        </a>
+      </div>
+    </div>
+
+    {/* Carousel */}
+    <h1 class="text-3xl">
+      Carousel thingy that displays the most recent posts
+    </h1>
+
+    <Carousel client:load/>
+  </div>
+</BaseLayout>

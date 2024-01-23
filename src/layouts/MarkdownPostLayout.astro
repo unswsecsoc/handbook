@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="flex flex-col items-center pt-9 max-w-screen-lg mx-auto">
+    <p class="text-4xl font-extrabold">{frontmatter.title}</p>
+    <p class="text-lg opacity-60"><em>{frontmatter.description}</em></p>
+    <div class="flex flex-row justify-around w-1/2">
+      <p>
+        Published on: {frontmatter.pubDate.toString().slice(0, 10)}
+      </p>
+
+      <p>Written by: {frontmatter.author}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 py-3">
+      {
+        frontmatter.tags.map((tag: unknown) => (
+          <p class=" hover:bg-amber-500 transition-all inline-flex items-center justify-center duration-200 ease-out h-5 text-sm leading-5 w-fit px-2 border-base-200 bg-base-100 text-base-content rounded-[1.9rem] border border-neutral bg-neutral text-neutral-content">
+            <a href={`/search/${tag}`}>{tag}</a>
+          </p>
+        ))
+      }
+    </div>
+
+    <img
+      class=""
+      src={frontmatter.image.url}
+      width="300"
+      alt={frontmatter.image.alt}
+    />
+    <div class="mx-auto mt-5 max-w-prose">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  a {
+    color: #00539f;
+  }
+</style>

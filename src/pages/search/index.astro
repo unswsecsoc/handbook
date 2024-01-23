@@ -1,0 +1,12 @@
+---
+import Search from "@/components/Search";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+---
+
+<BaseLayout title="search">
+  <div class="flex flex-col items-center pt-9 max-w-screen-lg mx-auto">
+    <Search client:load tag=""/>
+  </div>
+</BaseLayout>
