@@ -3,10 +3,20 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
+
+<script>
+const navBarHeight =
+      document.querySelector("header")?.getBoundingClientRect().height || 0;
+console.log(navBarHeight)
+
+
+</script>
+
 <BaseLayout title={frontmatter.title}>
   <div class="flex flex-col items-center pt-9 max-w-screen-lg mx-auto">
-    <p class="text-4xl font-extrabold">{frontmatter.title}</p>
-    <p class="text-lg opacity-60"><em>{frontmatter.description}</em></p>
+    <!-- The _top is very important for the TOC -->
+    <h1 id="_top" class="text-4xl font-extrabold">{frontmatter.title}</h1>
+    <h2 class="text-lg opacity-60"><em>{frontmatter.description}</em></h2>
     <div class="flex flex-row justify-around w-1/2">
       <p>
         Published on: {frontmatter.pubDate.toString().slice(0, 10)}
@@ -35,9 +45,3 @@ const { frontmatter } = Astro.props;
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  a {
-    color: #00539f;
-  }
-</style>

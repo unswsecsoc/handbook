@@ -2,6 +2,10 @@
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '@/layouts/MarkdownPostLayout.astro';
 import Prose from '@/components/Prose.astro';
+import { generateToC } from '@/lib/generateToc';
+import TOCList from '@/components/TOC/TOCList.astro';
+
+
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts');
@@ -11,10 +15,14 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
+
+const items = generateToC(headings, {minHeadingLevel: 1, maxHeadingLevel: 10})
+
 ---
 <MarkdownPostLayout frontmatter={entry.data}>
   <Prose>
     <Content />
   </Prose>
+  <TOCList toc={items}/>
 </MarkdownPostLayout>
