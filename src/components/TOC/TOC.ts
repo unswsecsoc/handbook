@@ -1,17 +1,16 @@
 const PAGE_TITLE_ID = "_top";
-
-export class StarlightTOC extends HTMLElement {
+export class TOC extends HTMLElement {
   private _current = this.querySelector(
     'a[aria-current="true"]'
-  ) as HTMLAnchorElement | null;
-
-  protected set current(link: HTMLAnchorElement) {
-    if (link === this._current) return;
-    if (this._current) this._current.removeAttribute("aria-current");
-    link.setAttribute("aria-current", "true");
+    ) as HTMLAnchorElement | null;
+    
+    protected set current(link: HTMLAnchorElement) {
+      if (link === this._current) return;
+      if (this._current) this._current.removeAttribute("aria-current");
+      link.setAttribute("aria-current", "true");
     this._current = link;
   }
-
+  
   constructor() {
     super();
 
@@ -106,4 +105,4 @@ export class StarlightTOC extends HTMLElement {
   }
 }
 
-customElements.define("starlight-toc", StarlightTOC);
+customElements.define("post-toc", TOC);

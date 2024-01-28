@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -26,3 +26,12 @@ const { title } = Astro.props;
 		</div>
 	</body>
 </html>
+
+
+<style>
+	html {
+		/* Additional padding is needed to account for the mobile TOC */
+		scroll-padding-top: calc(70px + 15px)
+	}
+
+</style>

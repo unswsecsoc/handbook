@@ -15,7 +15,7 @@ export function generateToC(
 	{ minHeadingLevel, maxHeadingLevel}: TocOpts
 ) {
 	headings = headings.filter(({ depth }) => depth >= minHeadingLevel && depth <= maxHeadingLevel);
-	const toc: Array<TocItem> = [{ depth: 2, slug: "_top", text: 'tableOfContents.overview', children: [] }];
+	const toc: Array<TocItem> = [{ depth: 2, slug: "_top", text: 'Overview', children: [] }];
 	for (const heading of headings) injectChild(toc, { ...heading, children: [] });
 	return toc;
 }
